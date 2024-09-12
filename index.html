@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/generator.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
+    <link rel="shortcut icon" href="./src/favicon.png" type="image/x-icon" />
+    <title>Theme Generator</title>
+  </head>
+  <body>
+    <!--FLOATING OPTION PANEL -->
+    <div id="panel">
+      <div id="bar">
+        <div id="drag">OPTIONS</div>
+        <div id="hide">-</div>
+        <div id="show">+</div>
+      </div>
+      <div id="p-content">
+        <div id="options">
+          <!-- GENERAL-->
+          <details>
+            <summary>General</summary>
+            <div class="option">
+              <label>Background image:</label>
+              <input
+                type="text"
+                id="--background-image"
+                placeholder="Image URL here"
+              />
+            </div>
+            <div class="option">
+              <label>Container margin top:</label>
+              <input
+                type="range"
+                name="margin"
+                id="--container-margin-top"
+                min="0"
+                max="20"
+                value="0"
+              />
+            </div>
+            <div class="option">
+              <label>Container padding:</label>
+              <input
+                type="range"
+                name="padding"
+                id="--container-padding"
+                min="0"
+                max="5"
+                value="0"
+                step="0.5"
+              />
+            </div>
+            <div class="option">
+              <label>Container width:</label>
+              <select id="--container-width">
+                <option value="25vw">Smaller</option>
+                <option value="35vw">Small</option>
+                <option value="50vw" selected>Medium</option>
+                <option value="80vw">Large</option>
+                <option value="100vw">Full width</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Container gap:</label>
+              <select id="--container-gap">
+                <option value="0vw">None</option>
+                <option value="1vw" selected>Small</option>
+                <option value="3vw">Medium</option>
+                <option value="8vw">Large</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Main gap:</label>
+              <select id="--main-gap">
+                <option value="0vw">None</option>
+                <option value="1vw" selected>Small</option>
+                <option value="3vw">Medium</option>
+                <option value="8vw">Large</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Main height:</label>
+              <select id="--main-height">
+                <option value="auto" selected>Auto</option>
+                <option value="50vh">Small</option>
+                <option value="70vh">Medium</option>
+                <option value="100vh">Large</option>
+              </select>
+            </div>
+            <div class="option full">
+              <label>Background:</label>
+              <input
+                type="text"
+                id="--background-color"
+                data-coloris
+                value="#e7e7e7"
+              />
+            </div>
+            <div class="option full">
+              <label>Container background:</label>
+              <input
+                type="text"
+                id="--container-bg-color"
+                data-coloris
+                value="#e7e7e7"
+              />
+            </div>
+            <div class="option full">
+              <label>Post background:</label>
+              <input
+                type="text"
+                id="--post-bg-color"
+                data-coloris
+                value="#ffffff"
+              />
+            </div>
+            <div class="option full">
+              <label>Sidebar background:</label>
+              <input
+                type="text"
+                id="--sidebar-bg-color"
+                data-coloris
+                value="#ffffff"
+              />
+            </div>
+            <div class="option full">
+              <label>Description Background:</label>
+              <input
+                type="text"
+                id="--desc-bg-color"
+                data-coloris
+                value="#ffffff"
+              />
+            </div>
+            <div class="option full">
+              <label>Footer Background:</label>
+              <input
+                type="text"
+                id="--footer-bg-color"
+                data-coloris
+                value="#ffffff"
+              />
+            </div>
+            <div class="option">
+              <label>Element padding:</label>
+              <input
+                type="range"
+                name="padding"
+                id="--element-padding"
+                min="0"
+                max="5"
+                value="1"
+                step="0.5"
+              />
+            </div>
+            <div class="option">
+              <label>Footer:</label>
+              <input type="checkbox" id="footer-check" checked />
+            </div>
+          </details>
+          <!--FONTS-->
+          <details>
+            <summary>Fonts</summary>
+            <div class="option">
+              <label>Font size:</label>
+              <select id="--font-size">
+                <option value="70%">Smaller</option>
+                <option value="85%">Small</option>
+                <option value="100%" selected>Medium</option>
+                <option value="150%">Large</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Text aligment:</label>
+              <select id="--text-alignment">
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+                <option value="center">Center</option>
+                <option value="justify">Justify</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Text font family:</label>
+              <select id="--text-font" style="font-family: var(--text-font)">
+                <option
+                  value="Arial, sans-serif"
+                  style="font-family: Arial, sans-serif"
+                >
+                  Arial
+                </option>
+                <option
+                  value="'verdana', sans-serif"
+                  style="font-family: 'verdana', sans-serif"
+                >
+                  Verdana
+                </option>
+                <option
+                  value="'tahoma', sans-serif"
+                  style="font-family: 'tahoma', sans-serif"
+                >
+                  Tahoma
+                </option>
+                <option
+                  value="'trebuchet ms', sans-serif"
+                  style="font-family: 'trebuchet ms', sans-serif"
+                >
+                  Trebuchet MS
+                </option>
+                <option
+                  value="'impact', sans-serif"
+                  style="font-family: 'impact', sans-serif"
+                >
+                  Impact
+                </option>
+                <option
+                  value="'Times New Roman', serif"
+                  style="font-family: 'Times New Roman', serif"
+                >
+                  Times New Roman
+                </option>
+                <option
+                  value="Georgia, serif"
+                  style="font-family: Georgia, serif"
+                >
+                  Georgia
+                </option>
+                <option
+                  value="Garamond, serif"
+                  style="font-family: Garamond, serif"
+                >
+                  Garamond
+                </option>
+                <option
+                  value="'Courier New', monospace"
+                  style="font-family: 'Courier New', monospace"
+                >
+                  Courier New
+                </option>
+                <option
+                  value="'Brush Script MT', cursive"
+                  style="font-family: 'Brush Script MT', cursive"
+                >
+                  Brush Script MT
+                </option>
+              </select>
+            </div>
+            <div class="option full">
+              <label>Text color:</label>
+              <input
+                type="text"
+                id="--text-color"
+                data-coloris
+                value="#000000"
+              />
+            </div>
+            <div class="option">
+              <label>Title aligment:</label>
+              <select id="--title-alignment">
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+                <option value="center">Center</option>
+                <option value="justify">Justify</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Title font family:</label>
+              <select id="--title-font" style="font-family: var(--title-font)">
+                <option
+                  value="Arial, sans-serif"
+                  style="font-family: Arial, sans-serif"
+                >
+                  Arial
+                </option>
+                <option
+                  value="'verdana', sans-serif"
+                  style="font-family: 'verdana', sans-serif"
+                >
+                  Verdana
+                </option>
+                <option
+                  value="'tahoma', sans-serif"
+                  style="font-family: 'tahoma', sans-serif"
+                >
+                  Tahoma
+                </option>
+                <option
+                  value="'trebuchet ms', sans-serif"
+                  style="font-family: 'trebuchet ms', sans-serif"
+                >
+                  Trebuchet MS
+                </option>
+                <option
+                  value="'impact', sans-serif"
+                  style="font-family: 'impact', sans-serif"
+                >
+                  Impact
+                </option>
+                <option
+                  value="'Times New Roman', serif"
+                  style="font-family: 'Times New Roman', serif"
+                >
+                  Times New Roman
+                </option>
+                <option
+                  value="Georgia, serif"
+                  style="font-family: Georgia, serif"
+                >
+                  Georgia
+                </option>
+                <option
+                  value="Garamond, serif"
+                  style="font-family: Garamond, serif"
+                >
+                  Garamond
+                </option>
+                <option
+                  value="'Courier New', monospace"
+                  style="font-family: 'Courier New', monospace"
+                >
+                  Courier New
+                </option>
+                <option
+                  value="'Brush Script MT', cursive"
+                  style="font-family: 'Brush Script MT', cursive"
+                >
+                  Brush Script MT
+                </option>
+              </select>
+            </div>
+            <div class="option full">
+              <label>Title color:</label>
+              <input
+                type="text"
+                id="--title-color"
+                data-coloris
+                value="#000000"
+              />
+            </div>
+            <div class="option full">
+              <label>Link color:</label>
+              <input
+                type="text"
+                id="--link-color"
+                data-coloris
+                value="#000000"
+              />
+            </div>
+            <div class="option full">
+              <label>Link hover color:</label>
+              <input
+                type="text"
+                id="--link-hover-color"
+                data-coloris
+                value="#000000"
+              />
+            </div>
+            <div class="option">
+              <label>Link decoration:</label>
+              <select id="--link-decoration">
+                <option value="none">None</option>
+                <option value="underline">Underline</option>
+                <option value="underline dotted">Underline dotted</option>
+                <option value="underline wavy">Underline wavy</option>
+                <option value="underline overline">Under & over</option>
+              </select>
+            </div>
+          </details>
+          <!-- HEADER-->
+          <details>
+            <summary>Header</summary>
+            <div class="option">
+              <label>Header image:</label>
+              <input
+                type="text"
+                id="--header-background-image"
+                placeholder="Image URL here"
+              />
+            </div>
+            <div class="option">
+              <label>Header:</label>
+              <input type="checkbox" id="header-check" checked />
+            </div>
+            <div class="option">
+              <label>Description:</label>
+              <input type="checkbox" id="desc-check" checked />
+            </div>
+            <div class="option">
+              <label>Header height:</label>
+              <select id="--header-height">
+                <option value="10vh">Extra small</option>
+                <option value="20vh">Smalll</option>
+                <option value="30vh" selected>Medium</option>
+                <option value="50vh">Large</option>
+                <option value="70vh">Extra large</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Header gap:</label>
+              <select id="--header-gap">
+                <option value="0vw">None</option>
+                <option value="1vw" selected>Small</option>
+                <option value="3vw">Medium</option>
+                <option value="8vw">Large</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Independent header:</label>
+              <input type="checkbox" id="independent-check" />
+            </div>
+          </details>
+          <!--NAGIVATION-->
+          <details>
+            <summary>Navigation</summary>
+            <div class="option">
+              <label>Nav position:</label>
+              <select id="nav-position">
+                <option value="inHeader">Header</option>
+                <option value="inLeft">Left Sidebar</option>
+                <option value="inRight">Right Sidebar</option>
+              </select>
+            </div>
+            <div class="option full">
+              <label>Link color:</label>
+              <input
+                type="text"
+                id="--nav-link-color"
+                data-coloris
+                value="#000000"
+              />
+            </div>
+            <div class="option full">
+              <label>Link hover color:</label>
+              <input
+                type="text"
+                id="--nav-link-hover-color"
+                data-coloris
+                value="#000000"
+              />
+            </div>
+            <div class="option full">
+              <label>Link background color:</label>
+              <input
+                type="text"
+                id="--nav-link-bg-color"
+                data-coloris
+                value="#ffffff"
+              />
+            </div>
+            <div class="option">
+              <label>Link gap:</label>
+              <input
+                type="range"
+                name="padding"
+                id="--nav-link-gap"
+                min="0"
+                max="5"
+                value="1"
+                step="0.5"
+              />
+            </div>
+            <div class="option">
+              <label>Border style:</label>
+              <select id="--nav-link-border-style">
+                <option value="solid">Solid</option>
+                <option value="dotted">Dotted</option>
+                <option value="dashed">Dashed</option>
+                <option value="double">Double</option>
+                <option value="groove">Groove</option>
+                <option value="ridge">Ridge</option>
+                <option value="inset">Inset</option>
+                <option value="Outset">Outset</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Border size:</label>
+              <input
+                type="range"
+                name="borders"
+                id="--nav-link-border-size"
+                min="0"
+                max="10"
+                value="1"
+              />
+            </div>
+            <div class="option">
+              <label>Border radius:</label>
+              <input
+                type="range"
+                name="borders"
+                id="--nav-link-border-radius"
+                min="1"
+                max="10"
+                value="1"
+              />
+            </div>
+          </details>
+          <!--SIDEBARS-->
+          <details>
+            <summary>Sidebars</summary>
+            <div class="option">
+              <label>Sidebar:</label>
+              <select id="select-sidebar">
+                <option value="bothSidebars" selected>Both sides</option>
+                <option value="leftSidebar">Left</option>
+                <option value="rightSidebar">Right</option>
+                <option value="noSidebar">None</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Auto resize:</label>
+              <select id="--sidebar-align-items">
+                <option value="flex-start">Disable</option>
+                <option value="stretch" selected>Enable</option>
+              </select>
+            </div>
+          </details>
+          <!--BORDERS-->
+          <details>
+            <summary>Borders</summary>
+            <div class="option">
+              <label>Border style:</label>
+              <select id="--border-style">
+                <option value="solid">Solid</option>
+                <option value="dotted">Dotted</option>
+                <option value="dashed">Dashed</option>
+                <option value="double">Double</option>
+                <option value="groove">Groove</option>
+                <option value="ridge">Ridge</option>
+                <option value="inset">Inset</option>
+                <option value="Outset">Outset</option>
+              </select>
+            </div>
+            <div class="option">
+              <label>Border size:</label>
+              <input
+                type="range"
+                id="--border-size"
+                name="borders"
+                min="1"
+                max="10"
+                value="1"
+              />
+            </div>
+            <div class="option">
+              <label>Border radius:</label>
+              <input
+                type="range"
+                name="borders"
+                id="--border-radius"
+                min="0"
+                max="10"
+                value="1"
+              />
+            </div>
+            <div class="option full">
+              <label>Border color:</label>
+              <input
+                type="text"
+                id="--border-color"
+                data-coloris
+                value="#000000"
+              />
+            </div>
+            <fieldset>
+              <legend>Box Borders</legend>
+              <div>
+                <label for="">Header</label
+                ><input
+                  type="checkbox"
+                  name="border-check"
+                  id="border-header"
+                  checked
+                />
+              </div>
+              <div>
+                <label for="">Header Description</label
+                ><input
+                  type="checkbox"
+                  name="border-check"
+                  id="border-desc"
+                  checked
+                />
+              </div>
+              <div>
+                <label for="">Sidebar Left</label
+                ><input
+                  type="checkbox"
+                  name="border-check"
+                  id="border-sideleft"
+                  checked
+                />
+              </div>
+              <div>
+                <label for="">Sidebar Right</label
+                ><input
+                  type="checkbox"
+                  name="border-check"
+                  id="border-sideright"
+                  checked
+                />
+              </div>
+              <div>
+                <label for="">Main Post</label
+                ><input
+                  type="checkbox"
+                  name="border-check"
+                  id="border-posts"
+                  checked
+                />
+              </div>
+              <div>
+                <label for="">Footer</label
+                ><input
+                  type="checkbox"
+                  name="border-check"
+                  id="border-footer"
+                  checked
+                />
+              </div>
+              <div>
+                <label for="">Container</label
+                ><input
+                  type="checkbox"
+                  name="border-check"
+                  id="border-container"
+                />
+              </div>
+            </fieldset>
+          </details>
+        </div>
+        <div id="generate">
+          <button id="generate-btn">generate</button>
+        </div>
+        <div id="code-output">
+          <textarea readonly></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- STYLING-->
+    <style>
+      body {
+        margin: 0 auto;
+        padding: 0;
+        font-size: 100%;
+        font-family: var(--text-font);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        background-size: cover;
+        word-wrap: break-word;
+      }
+      ul {
+        margin: 0;
+      }
+      a {
+        color: var(--link-color);
+        text-decoration: var(--link-decoration);
+      }
+      a:hover {
+        color: var(--link-hover-color);
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+      h1,
+      h2,
+      h3 {
+        color: var(--title-color);
+        font-family: var(--title-font);
+        text-align: var(--title-alignment);
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        padding: 0;
+        margin: 0;
+      }
+      #container {
+        width: var(--container-width);
+        margin: auto;
+        color: var(--text-color);
+        gap: var(--container-gap);
+        font-size: var(--font-size);
+        text-align: var(--text-alignment);
+        padding: var(--container-padding);
+        margin-top: var(--container-margin-top);
+        background-color: var(--container-bg-color);
+      }
+      header {
+        background-size: cover;
+        background-position: center;
+        height: var(--header-height);
+        width: var(--header-width);
+        background-image: var(--header-background-image);
+      }
+      header,
+      #top,
+      #container,
+      main,
+      #left,
+      #right,
+      #post {
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+        overflow: scroll;
+      }
+      header,
+      #description,
+      #left,
+      #right,
+      #post,
+      footer {
+        padding: var(--element-padding);
+        border-radius: var(--border-radius);
+        border: var(--border-size) var(--border-style) var(--border-color);
+      }
+      #left,
+      #right {
+        width: 20%;
+        flex-grow: 1;
+        background-color: var(--sidebar-bg-color);
+      }
+      #top {
+        gap: var(--header-gap);
+      }
+      #description {
+        background-color: var(--desc-bg-color);
+      }
+      #post {
+        gap: 1vw;
+        width: 60%;
+        flex-grow: 1;
+        box-sizing: border-box;
+        background-color: var(--post-bg-color);
+      }
+      main {
+        width: 100%;
+        height: var(--main-height);
+        flex-direction: row;
+        gap: var(--main-gap);
+        align-items: var(--sidebar-align-items);
+      }
+      main img {
+        width: var(--max-image-width);
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav ul {
+        margin: 0;
+        padding: 0;
+        margin: 1vw 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        list-style-type: none;
+        justify-content: center;
+        gap: var(--nav-link-gap);
+      }
+      nav ul a {
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        /** BUTTON STYLE **/
+        padding: 0.5vw;
+        color: var(--nav-link-color);
+        text-decoration: var(--nav-link-decoration);
+        border: var(--nav-link-border-size) var(--nav-link-border-style)
+          var(--nav-link-color);
+        border-radius: var(--nav-link-border-radius);
+        background-color: var(--nav-link-bg-color);
+      }
+      nav ul a:hover {
+        color: var(--nav-link-hover-color);
+      }
+      footer {
+        background-color: var(--footer-bg-color);
+        text-align: center;
+      }
+    </style>
+    <!-- THEME PREVIEW STARTS HERE-->
+    <div id="container">
+      <div id="top">
+        <header></header>
+        <div id="description">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ipsam
+            esse magnam quidem labore. Illum pariatur nulla veniam explicabo est
+            fugit ut inventore! Impedit error modi rem sed obcaecati odio.
+          </p>
+          <nav>
+            <ul>
+              <a href="#">home</a
+              ><a href="#">link</a
+              ><a href="#">link</a
+              ><a href="#">link</a
+              ><a href="#">link</a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <main>
+        <aside id="left">
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam
+            sint quae harum saepe in. Consectetur porro aliquid velit incidunt
+            veritatis, eveniet sint odio cum dolore iste vero est iusto itaque!
+          </p>
+        </aside>
+
+        <article id="post">
+          <h1>THEME GENERATOR</h1>
+          <p>
+            This layout generator will create a flex-based layout for you to
+            customize as you'd like.
+          </p>
+          <p>
+            As this will only generate a simple template, all of the options
+            available are very basic. The layout uses responsive sizes (vh, vw,
+            and %) for nearly everything, including font-size.
+          </p>
+          <h2>Subtitle</h2>
+          <p><a href="/">link preview</a></p>
+          <h3>To-do list:</h3>
+          <ul>
+            <li>Add responsiveness (for mobile view).</li>
+            <li>Tweak default theme.</li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nihil
+            facere dolorum, aliquid deserunt non doloremque consequatur eligendi
+            asperiores iure. Veniam odio ratione nisi nam exercitationem in
+            autem sequi iste.
+          </p>
+        </article>
+
+        <aside id="right">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nulla
+            quibusdam assumenda illo magni doloremque quo dolores, dolor
+            blanditiis exercitationem laudantium deserunt? Recusandae, ea!
+            Maxime nesciunt quam magni laborum ipsam?
+          </p>
+        </aside>
+      </main>
+      <footer>
+        <p><strong>made with ❤️ by noirecode</strong></p>
+      </footer>
+    </div>
+    <script src="./src/generator.js"></script>
+  </body>
+</html>
